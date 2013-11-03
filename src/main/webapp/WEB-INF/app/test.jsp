@@ -9,5 +9,16 @@
     <body>
         <h1>FIRST DAY SPRING MVC</h1>
         <p>${mensaje}</p>
+        <hr/>
+        
+        <form action="guardarDos" method="post">
+            <label>Nombres</label>
+            <input type="text" name="nombres">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos">
+            
+            <input type="submit"/>
+        </form>
+        
     </body>
 </html>
