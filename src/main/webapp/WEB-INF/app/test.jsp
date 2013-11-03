@@ -1,8 +1,3 @@
-<%-- 
-    Document   : test
-    Created on : 03/11/2013, 12:31:05 PM
-    Author     : Administrador
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>FIRST DAY SPRING MVC</h1>
+        <p>${mensaje}</p>
     </body>
 </html>
