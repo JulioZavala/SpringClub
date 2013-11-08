@@ -2,7 +2,7 @@
 package app.controller.test;
 
 
-import app.dao.CampoDAO;
+import app.dao.hibernate.CampoDAOH;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -62,10 +62,10 @@ public class TestController {
     
     
     @RequestMapping ("campos")
-    public String listaCampos(Model model) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("database.xml");
-        CampoDAO campoDAO = (CampoDAO) context.getBean("campoDAO");
-        model.addAttribute("campos", campoDAO.list());
+    public String listaCampos(Model model, @ModelAttribute CampoDAOH campoDAOH) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/config/database.xml");
+        campoDAOH = (CampoDAOH) context.getBean("campoDAOH");
+        model.addAttribute("campos", campoDAOH.list());
         return "campos";
     }
 }
