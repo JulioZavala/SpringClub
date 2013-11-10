@@ -35,7 +35,7 @@ public class ServicioCotroller {
         Servicio servicio = service.get(new Servicio(id));
         
         if(servicio==null){
-            return "redirect:adm/servicio";
+            return "redirect:/adm/servicio";
         }
         
         model.addAttribute("servicio",servicio);
@@ -51,7 +51,7 @@ public class ServicioCotroller {
              service.update(servicio);
          }
         
-        return "redirect:adm/servicio";
+        return "redirect:/adm/servicio";
     }
     
     @RequestMapping("delete/{id}")
@@ -59,7 +59,7 @@ public class ServicioCotroller {
                 
        service.delete(new Servicio(id));
            
-       return "redirect:adm/servicio";
+       return "redirect:/adm/servicio";
     }
     
     

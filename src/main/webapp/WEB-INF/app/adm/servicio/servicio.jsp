@@ -1,16 +1,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8">
-        <title> Servicios </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
         <%@include file="/public/header.jsp" %>
     </head>
-
     <body>
 
         <%@include file="/public/menuGeneral.jsp" %>
@@ -19,57 +18,79 @@
             <div class="row-fluid">
 
                 <%@include file="/public/menuAdm.jsp" %>
-
                 <div class="span9">
+
                     <div class="row">
                         <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/servicio/new"> Nuevo </a>
                         <h1> Servicios </h1>
                     </div>
-                    
-                    <% if (!locales.isEmpty()) {%>
-                    <table class="table table-striped table-hover"> 
-                        <thead>
-                        <th> Id </th>
-                        <th> Descripción </th>
-                        <th> Costo Hora </th>
-                        <th></th>
-                        </thead>
-                        <tbody>
-                            <% for (Local local : locales) {%>
+
+
+                        <table class="table table-hover">
+                            
+                            <th class="span7"> Descripción </th>
+                            <th> Costo / Hora </th>
+                            <th></th>
+                            
+                            <c:forEach var="serv" items="${servicios}">
                             <tr>
-                                <td> <%=local.getDescripcion()%> </td>
-                                <td> <%=local.getDireccion()%> </td>
-                                <td> <%=local.getTelefono()%> </td>
-                                <td> 
+                                <td><c:out value="${serv.descripcion}"/></td>
+                                <td><c:out value="${serv.costoHora}"/></td>
+                            
+                            
+                            
+                            
+                            <td> 
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" role="menu"  href="#">
                                           <i class="icon-cog"></i>
                                         </a>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="<%=contextPath%>/adm/locales?action=<%=Constants.ACTION_UPDATE%>&id=<%=local.getId()%>">
+                                                <a href="<%=contextPath%>/adm/servicio/update/${serv.id}">
                                                 Editar<a>
                                             </li>
                                             <li>
-                                                <a href="<%=contextPath%>/adm/locales?action=<%=Constants.ACTION_DELETE%>&id=<%=local.getId()%>">
+                                                <a href="<%=contextPath%>/adm/servicio/delete/${serv.id}">
                                                     Eliminar<a>
                                             </li>
                                         </ul>
                                       </div>
                                 </td>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             </tr>
-                            <% }%>
-                        </tbody>
-                    </table>
+                            </c:forEach>
+                            
+                            
+                            
+                            
+                            
+                            
+                        </table>
                         
-                    <% }%>
+                        
+                        
+
+                        
+                        
+                        
+                        
+                        
                 </div>
             </div>
-
-
             <hr>
         </div>
 
-        <%@include file="/public/footer.jsp" %>
+    <%@include file="/public/footer.jsp" %>
+
     </body>
 </html>
