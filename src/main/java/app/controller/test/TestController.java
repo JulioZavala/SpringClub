@@ -2,9 +2,9 @@
 package app.controller.test;
 
 
+import app.dao.CampoDAO;
 import app.dao.hibernate.CampoDAOH;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,11 +61,11 @@ public class TestController {
     }
     
     
+    @Autowired
+    CampoDAO campoDAO;
     @RequestMapping ("campos")
     public String listaCampos(Model model, @ModelAttribute CampoDAOH campoDAOH) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/config/database.xml");
-        campoDAOH = (CampoDAOH) context.getBean("campoDAOH");
-        model.addAttribute("campos", campoDAOH.list());
+        model.addAttribute("campos", campoDAO.list());
         return "campos";
     }
 }
