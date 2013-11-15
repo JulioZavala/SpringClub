@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -31,6 +30,7 @@
                             <th class="span7"> Dirección </th>
                             <th> Descripción </th>
                             <th> Teléfono </th>
+                            <th> Estado </th>
                             <th></th>
                             
                             <c:forEach var="serv" items="${locales}">
@@ -38,7 +38,15 @@
                                 <td><c:out value="${serv.direccion}"/></td>
                                 <td><c:out value="${serv.descripcion}"/></td>
                                 <td><c:out value="${serv.telefono}"/></td>
-                            
+                                
+                                <td>
+                                    <c:if test="${serv.estado == 1}">
+                                        <label class="label label-success">Activo</label>
+                                    </c:if>
+                                    <c:if test="${serv.estado != 1}">
+                                        <label class="label label-warning">Inactivo</label>
+                                    </c:if>
+                               </td>
                                                                                     
                             <td> 
                                     <div class="btn-group">

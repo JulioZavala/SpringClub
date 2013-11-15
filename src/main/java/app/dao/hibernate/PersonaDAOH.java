@@ -4,6 +4,7 @@ package app.dao.hibernate;
 import app.dao.BaseHibernateDAO;
 import app.dao.PersonaDAO;
 import app.model.Persona;
+import app.zelper.RolesEnum;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -31,13 +32,32 @@ public class PersonaDAOH extends BaseHibernateDAO implements PersonaDAO{
 
     @Transactional
     public void update(Persona t) {
-        this.getSession().update(t);
+        this.getSession().merge(t);
     }
 
     @Transactional
     public void delete(Persona t) {
         this.getSession().delete(t);
     }
+
+    @Override
+    public List<Persona> listAdministrador() {
+        
+        Criteria criteria = this.getSession().createCriteria(Persona.class);
+        criteria.createCriteria("usuario")
+                .createCriteria("usuario_rol")
+                .add(Restrictions.eq("authority", RolesEnum.ADMIN.getValue()));
+        return criteria.list();
+        
+    }
     
+    
+    public List<Persona> listSocio() {
+        Criteria criteria = this.getSession().createCriteria(Persona.class);
+        criteria.createCriteria("usuario")
+                .createCriteria("usuario_rol")
+                .add(Restrictions.eq("authority", RolesEnum.SOCIO.getValue()));
+        return criteria.list();
+    }
     
 }

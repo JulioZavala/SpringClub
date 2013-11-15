@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         <title>JSP Page</title>
         <%@include file="/public/header.jsp" %>
     </head>
@@ -62,8 +62,17 @@
                                 <div class="controls" >
 
                                     <select name="estado" value="${local.estado}">
-                                    <option value="1">Activo</option>
-                                    <option value="0">Inactivo</option>
+                                    
+                                        <c:if test="${local.estado == 1 or local.estado == null}">
+                                            <option value="1" selected>Activo</option>
+                                            <option value="0">Inactivo</option>
+                                        </c:if>
+                                        <c:if test="${local.estado == 0}">
+                                            <option value="1">Activo</option>
+                                            <option value="0"selected>Inactivo</option>
+                                        </c:if>                                        
+                                        
+                                    
                                     </select>
 
                                 </div>

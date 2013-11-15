@@ -3,6 +3,7 @@ package app.dao.hibernate;
 
 import app.dao.BaseHibernateDAO;
 import app.dao.UsuarioDAO;
+import app.model.Persona;
 import app.model.Usuario;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -39,5 +40,11 @@ public class UsuarioDAOH extends BaseHibernateDAO implements UsuarioDAO{
         this.getSession().delete(t);
     }
     
+    @Override
+    public Usuario getByPersona(Persona persona) {
+        Criteria criteria = this.getSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("persona", persona));
+        return (Usuario) criteria.uniqueResult();
+    }
     
 }
