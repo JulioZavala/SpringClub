@@ -47,4 +47,11 @@ public class UsuarioDAOH extends BaseHibernateDAO implements UsuarioDAO{
         return (Usuario) criteria.uniqueResult();
     }
     
+    
+    public Usuario getByUserName (String username){
+        Criteria criteria = this.getSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("usuario", username));
+        return (Usuario) criteria.uniqueResult();
+    }
+    
 }
