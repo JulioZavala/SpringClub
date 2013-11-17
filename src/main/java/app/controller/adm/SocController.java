@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/adm")
-public class AdmController {
+@RequestMapping("/socio")
+public class SocController {
     
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
@@ -19,7 +19,7 @@ public class AdmController {
     
         Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         
-        return "ADMINISTRADOR: " + persona.getFullName();
+        return "SOCIO: " + persona.getFullName();
     }
     
     
