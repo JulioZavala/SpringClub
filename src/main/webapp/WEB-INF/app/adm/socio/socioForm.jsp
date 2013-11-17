@@ -20,7 +20,7 @@
                         <h1> Nuevo Socio </h1>
                     </div>
 
-                    <form action="<%=contextPath%>/adm/socio/save" method="POST" class="form-horizontal">
+                    <form action="<%=contextPath%>/adm/socio/save" method="POST" class="form-horizontal" id="socioForm">
 
                         <input type="hidden" value="${socio.id}" name="id">
 
@@ -84,5 +84,32 @@
             <hr>
         </div>
         <%@include file="/public/footer.jsp" %>
+        
+        
+        <script>
+            $(function() {
+                $('#socioForm').validate({
+                    rules: {
+                        nom: {required: true},
+                        clave: {required: true}
+                    },
+                    
+                    
+                    highlight: function(element) {
+                        $(element).closest('.control-group').removeClass('success').addClass('error');
+                    },
+                    success: function(element) {
+                        element
+                                .text('OK!').addClass('valid')
+                                .closest('.control-group').removeClass('error').addClass('success');
+                    }
+                    
+                });
+            });
+
+        </script>
+        
+        
+        
     </body>
 </html>

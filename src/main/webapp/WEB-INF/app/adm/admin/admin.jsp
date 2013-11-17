@@ -1,5 +1,5 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,15 +39,15 @@
                             <c:forEach var="adm" items="${admins}">
                             <tr>
                                 <td><c:out value="${adm.getFullName()}"/></td>
-                                <td><c:out value="${adm.Email}"/></td>
-                                <td><c:out value="${adm.Celular}"/></td>
-                                <td><c:out value="${adm.Sexo}"/></td>
-                                <td><c:out value="${adm.Direccion}"/></td>
+                                <td><c:out value="${adm.email}"/></td>
+                                <td><c:out value="${adm.celular}"/></td>
+                                <td><c:out value="${adm.sexo}"/></td>
+                                <td><c:out value="${adm.direccion}"/></td>
                                 <td>
-                                    <c:if test="${adm.estado == 1}">
+                                    <c:if test="${adm.usuario.estado == 1}">
                                         <label class="label label-success">Activo</label>
                                     </c:if>
-                                    <c:if test="${adm.estado != 1}">
+                                    <c:if test="${adm.usuario.estado != 1}">
                                         <label class="label label-warning">Inactivo</label>
                                     </c:if>
                                </td>
@@ -69,29 +69,9 @@
                                         </ul>
                                       </div>
                                 </td>
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                             </tr>
                             </c:forEach>
-                            
-                            
-                            
-                            
-                            
-                            
                         </table>
-                    
-                    
-
-
                 </div>
             </div>
             <hr>

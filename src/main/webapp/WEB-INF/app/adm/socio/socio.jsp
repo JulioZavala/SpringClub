@@ -1,5 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,15 +40,15 @@
                             <c:forEach var="socio" items="${socios}">
                             <tr>
                                 <td><c:out value="${socio.getFullName()}"/></td>
-                                <td><c:out value="${socio.Email}"/></td>
-                                <td><c:out value="${socio.Celular}"/></td>
-                                <td><c:out value="${socio.Sexo}"/></td>
-                                <td><c:out value="${socio.Direccion}"/></td>
+                                <td><c:out value="${socio.email}"/></td>
+                                <td><c:out value="${socio.celular}"/></td>
+                                <td><c:out value="${socio.sexo}"/></td>
+                                <td><c:out value="${socio.direccion}"/></td>
                                 <td>
-                                    <c:if test="${socio.estado == 1}">
+                                    <c:if test="${socio.usuario.estado == 1}">
                                         <label class="label label-success">Activo</label>
                                     </c:if>
-                                    <c:if test="${socio.estado != 1}">
+                                    <c:if test="${socio.usuario.estado != 1}">
                                         <label class="label label-warning">Inactivo</label>
                                     </c:if>
                                </td>
