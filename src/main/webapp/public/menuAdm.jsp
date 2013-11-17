@@ -10,6 +10,8 @@
             <li class="active"><a href="<%=contextPath%>/adm/local">Locales</a></li>
             <li><a href="<%=contextPath%>/adm/campo">Campos Deportivos</a></li>
             <li><a href="<%=contextPath%>/adm/servicio">Otros Servicios</a></li>
+            <li><a href="<%=contextPath%>/adm/admin">Administradores</a></li>
+            <li><a href="<%=contextPath%>/adm/socio">Socios</a></li>
         </ul>
     </div>
     

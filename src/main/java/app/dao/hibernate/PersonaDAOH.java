@@ -45,7 +45,7 @@ public class PersonaDAOH extends BaseHibernateDAO implements PersonaDAO{
         
         Criteria criteria = this.getSession().createCriteria(Persona.class);
         criteria.createCriteria("usuario")
-                .createCriteria("usuario_rol")
+                .createCriteria("usuarioRol")
                 .add(Restrictions.eq("authority", RolesEnum.ADMIN.getValue()));
         return criteria.list();
         
@@ -55,7 +55,7 @@ public class PersonaDAOH extends BaseHibernateDAO implements PersonaDAO{
     public List<Persona> listSocio() {
         Criteria criteria = this.getSession().createCriteria(Persona.class);
         criteria.createCriteria("usuario")
-                .createCriteria("usuario_rol")
+                .createCriteria("usuarioRol")
                 .add(Restrictions.eq("authority", RolesEnum.SOCIO.getValue()));
         return criteria.list();
     }
