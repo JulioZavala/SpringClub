@@ -2,4 +2,7 @@
 <script src="<%=request.getContextPath()%>/public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/public/jvalidate/jquery.validate.min.js"></script>
 <script src="<%=request.getContextPath()%>/public/jvalidate/messages_es.js"></script>
+
+
+
 <!-- MOD BY JOSE-->
