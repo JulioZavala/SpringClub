@@ -28,20 +28,12 @@ public class AdminController {
         return "adm/admin/admin";
     }
 
-    @RequestMapping("newAdmin")
+    @RequestMapping("new")
     public String nuevoAdmin(Model model) {
 
         model.addAttribute("admin", new Persona());
 
         return "adm/admin/adminForm";
-    }
-
-    @RequestMapping("newSocio")
-    public String nuevoSocio(Model model) {
-
-        model.addAttribute("socio", new Persona());
-
-        return "adm/admin/socioForm";
     }
 
     @RequestMapping("update/{id}")

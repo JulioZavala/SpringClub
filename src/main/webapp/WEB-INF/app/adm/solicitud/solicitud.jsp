@@ -28,10 +28,10 @@
 
                         <div class="panel-heading">
                             <div class="icon">
-                                <i class="icon-2x icon-home"></i>
+                                <i class="icon-2x icon-list"></i>
                             </div>
-                            <h4>Locales</h4>
-                            <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/local/new"> Nuevo </a>
+                            <h4>Reservas</h4>
+                            <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/solicitud/new"> Nuevo </a>
                         </div>
 
 
@@ -40,9 +40,13 @@
 
                             <table class="table table-hover table-bordered">
 
-                                <th class="span3 header">Descripción</th>
-                                <th class="header">Dirección</th>
-                                <th class="header">Teléfono</th>
+                                <th class="header">Id Socio</th>
+                                <th class="span3 header">Socio</th>
+                                <th class="header">Local</th>
+                                <th class="header">Campo</th>
+                                <th class="header">Dia</th>
+                                <th class="header">Hora Inicio</th>
+                                <th class="header">Hora Fin</th>
                                 <th class="header">Estado</th>
                                 <th class="span1 header"></th>
                                 <th class="span1 header"></th>
@@ -50,25 +54,31 @@
 
 
 
-                                <c:forEach var="camp" items="${locales}">
+                                <c:forEach var="camp" items="${solicitudes}">
                                     <tr>
-                                        <td><c:out value="${camp.descripcion}"/></td>
-                                        <td><c:out value="${camp.direccion}"/></td>
-                                        <td><c:out value="${camp.telefono}"/></td>
+                                        <td><c:out value="${camp.persona.id}"/></td>
+                                        <td><c:out value="${camp.persona.getFullName()}"/></td>
+                                        <td><c:out value="${camp.campo.local.descripcion}"/></td>
+                                        <td><c:out value="${camp.campo.descripcion}"/></td>
+                                        <td><c:out value="${camp.dia}"/></td>
+                                        <td><c:out value="${camp.hora_inicio}"/></td>
+                                        <td><c:out value="${camp.hora_fin}"/></td>
+                                        
+                                        
                                         <td>
                                             <c:if test="${camp.estado == 1}">
-                                                <label class="label label-success">Activo</label>
+                                                <label class="label label-success">Aprobado</label>
                                             </c:if>
                                             <c:if test="${camp.estado != 1}">
-                                                <label class="label label-warning">Inactivo</label>
+                                                <label class="label label-warning">No Aprobado</label>
                                             </c:if>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/local/listCampos/${adm.id}"><i class="icon-dribbble"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/solicitud/listServicios/${adm.id}"><i class="icon-list"></i></a>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/local/update/${adm.id}"><i class="icon-edit"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/solicitud/update/${adm.id}"><i class="icon-edit"></i></a>
                                         </td>
 
-                                        <td><a href="<%=contextPath%>/adm/local/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/solicitud/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
                                         </td>
 
                                     </tr>

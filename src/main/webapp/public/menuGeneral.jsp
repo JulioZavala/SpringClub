@@ -8,21 +8,21 @@
             <div class="container">
 
                 <i></i>
-                <a class="brand">Club Admin</a>
+                <a class="brand">Club admin</a>
 
 
                 <ul class="nav pull-right">
 
                     <li class="rol">
-                        <p><c:out value="${usuario.nombres}"/></p>
+                        <p>Administrador</p>
                     </li>
                     
                     <li>
                         <a data-toggle="dropdown" href="#">
                             <span>
-                                <img class="menu-avatar" src="<%=request.getContextPath()%>/public/app/img/02.jpg">
+                                <img class="menu-avatar" src="<%=request.getContextPath()%>/public/app/img/no_avatar.jpg">
                                 <span>
-                                    <c:out value="${usuario.nombres}"/> <c:out value="${usuario.paterno}"/>
+                                    ${usuario.nombres} ${usuario.paterno}
                                     <i class="icon-caret-down"></i>
                                 </span>
 
@@ -31,9 +31,9 @@
                         <ul class="dropdown-menu">
                             <li  class="with-image">
                                 <div class="avatar">
-                                    <img class="img-rounded" src="<%=request.getContextPath()%>/public/app/img/02.jpg">
+                                    <img class="img-rounded" src="<%=request.getContextPath()%>/public/app/img/no_avatar.jpg">
                                 </div>
-                                <span><c:out value="${usuario.nombres}"/> <c:out value="${usuario.paterno}"/></span>
+                                <span>${usuario.nombres} ${usuario.paterno}</span>
                             </li>
                             <li class="divider"></li>
                             <li>

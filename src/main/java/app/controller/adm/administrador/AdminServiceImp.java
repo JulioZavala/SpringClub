@@ -28,7 +28,8 @@ public class AdminServiceImp implements AdminService{
     
     @Override
     public List<Persona> list() {
-         List<Persona> list=personaDAO.listAdministrador();
+         //List<Persona> list=personaDAO.listAdministrador();
+         List<Persona> list=personaDAO.list();
          System.out.println(list.size());
          return list;
     }

@@ -4,7 +4,9 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-        <title>Administradores Page</title>
+        <title>Panel Administrador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <%@include file="/public/header.jsp" %>
     </head>
     <body>
@@ -18,66 +20,68 @@
                 <div class="span9">
 
 
-                    
-                    
-                    <div class="row">
-                        <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/admin/new"> Nuevo </a>
-                        <h1> Administradores </h1>
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <div class="icon">
+                                <i class="icon-2x icon-group"></i>
+                            </div>
+                            <h4>Usuarios</h4>
+                            <a class="minimize" href="#"></a>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <table class="table table-hover table-bordered">
+
+                                <th class="span3 header">Nombre</th>
+                                <th class="header">Email</th>
+                                <th class="header">Celular</th>
+                                <th class="header">Sexo</th>
+                                <th class="header">Dirección</th>
+                                <th class="header">Estado</th>
+                                <th class="span1 header"></th>
+                                <th class="span1 header"></th>
+                                
+
+
+                                <c:forEach var="adm" items="${admins}">
+                                    <tr>
+                                        <td><c:out value="${adm.getFullName()}"/></td>
+                                        <td><c:out value="${adm.email}"/></td>
+                                        <td><c:out value="${adm.celular}"/></td>
+                                        <td><c:out value="${adm.sexo}"/></td>
+                                        <td><c:out value="${adm.direccion}"/></td>
+                                        <td>
+                                            <c:if test="${adm.usuario.estado == 1}">
+                                                <label class="label label-success">Activo</label>
+                                            </c:if>
+                                            <c:if test="${adm.usuario.estado != 1}">
+                                                <label class="label label-warning">Inactivo</label>
+                                            </c:if>
+                                        </td>
+                                        <td><a href="<%=contextPath%>/adm/admin/update/${adm.id}"><i class="icon-edit"></i></a>
+                                        </td>
+                                       
+                                        <td><a href="<%=contextPath%>/adm/admin/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
+                                        </td>
+                                    
+                                    </tr>
+                                </c:forEach>
+                            </table>
+
+                        </div>
+
+
                     </div>
 
 
-                        <table class="table table-hover">
-                            
-                            <th class="span3">Nombre</th>
-                            <th>Email</th>
-                            <th>Celular</th>
-                            <th>Sexo</th>
-                            <th>Dirección</th>
-                            <th>Estado</th>
-                            <th></th>
-                            
-                            <c:forEach var="adm" items="${admins}">
-                            <tr>
-                                <td><c:out value="${adm.getFullName()}"/></td>
-                                <td><c:out value="${adm.email}"/></td>
-                                <td><c:out value="${adm.celular}"/></td>
-                                <td><c:out value="${adm.sexo}"/></td>
-                                <td><c:out value="${adm.direccion}"/></td>
-                                <td>
-                                    <c:if test="${adm.usuario.estado == 1}">
-                                        <label class="label label-success">Activo</label>
-                                    </c:if>
-                                    <c:if test="${adm.usuario.estado != 1}">
-                                        <label class="label label-warning">Inactivo</label>
-                                    </c:if>
-                               </td>
-                                                                                    
-                            <td> 
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" role="menu"  href="#">
-                                          <i class="icon-cog"></i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a href="<%=contextPath%>/adm/admin/update/${adm.id}">
-                                                Editar<a>
-                                            </li>
-                                            <li>
-                                                <a href="<%=contextPath%>/adm/admin/delete/${adm.id}">
-                                                    Eliminar<a>
-                                            </li>
-                                        </ul>
-                                      </div>
-                                </td>
-                            </tr>
-                            </c:forEach>
-                        </table>
                 </div>
             </div>
             <hr>
         </div>
 
-    <%@include file="/public/footer.jsp" %>
+        <%@include file="/public/footer.jsp" %>
 
     </body>
 </html>

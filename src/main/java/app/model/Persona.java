@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -42,8 +43,8 @@ public class Persona implements Serializable {
     @OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
     private Usuario usuario;
     
-    @OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
-    private Socio socio;
+    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
+    private SolicitudAlquiler solicitudAlquiler;
     
 
 
@@ -126,12 +127,12 @@ public class Persona implements Serializable {
         this.usuario = usuario;
     }
 
-    public Socio getSocio() {
-        return socio;
+    public SolicitudAlquiler getSolitudAlquiler() {
+        return solicitudAlquiler;
     }
 
-    public void setSocio(Socio socio) {
-        this.socio = socio;
+    public void setSolicitudAlquiler(SolicitudAlquiler solicitudAlquiler) {
+        this.solicitudAlquiler = solicitudAlquiler;
     }
 
     public String getFullName(){

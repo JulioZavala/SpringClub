@@ -34,8 +34,8 @@ public class SolicitudAlquiler implements Serializable {
     private Integer estado;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "id_socio")
-    private Socio socio;
+    @JoinColumn(name = "id_persona")
+    private Persona persona;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_campo")
@@ -96,12 +96,12 @@ public class SolicitudAlquiler implements Serializable {
         this.estado = estado;
     }
 
-    public Socio getSocio() {
-        return socio;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setSocio(Socio socio) {
-        this.socio = socio;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     public Campo getCampo() {
         return campo;

@@ -1,7 +1,10 @@
 
 package app.controller.adm.solicitud;
 
+import app.model.Persona;
 import app.model.SolicitudAlquiler;
+import app.zelper.Constantes;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +21,10 @@ public class SolicitudController {
     @Autowired
     SolicitudService service;
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model model) {
+    public String index(Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         model.addAttribute("solicitudes",service.list());
+        model.addAttribute("persona", persona);
         return "adm/solicitud/solicitud";
     }
     

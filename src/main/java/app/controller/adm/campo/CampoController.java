@@ -2,6 +2,9 @@
 package app.controller.adm.campo;
 
 import app.model.Campo;
+import app.model.Persona;
+import app.zelper.Constantes;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +21,10 @@ public class CampoController {
     @Autowired
     CampoService service;
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model model) {
+    public String index(Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         model.addAttribute("campos",service.list());
+        model.addAttribute("persona", persona);
         return "adm/campo/campo";
     }
     

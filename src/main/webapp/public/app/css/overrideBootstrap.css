@@ -468,18 +468,82 @@ body {
     height: 35px;
     line-height: 35px;
     width: 100%;
+    border-bottom: 1px solid #C9C9C9;
 }
 
 
 
+.panel {
+    background: none repeat scroll 0 0 #FEFEFE;
+    border: 1px solid #C9C9C9;
+    box-shadow: 1px 1px 0 0 rgba(222, 222, 222, 0.1) inset, 1px 1px 0 0 #FFFFFF;
+    margin-bottom: 1px;
+    padding: 0;
+    position: relative;
+    border-radius: 4px;
+}
+
+.panel .panel-heading {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.05);
+    height: auto;
+    padding: 0;
+    position: relative;
+    border-bottom: 1px solid #C9C9C9;
+}
+.panel-heading {
+ 
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  
+}
 
 
+.panel .panel-heading .icon {
+    border-right: 1px solid #C9C9C9;
+    box-shadow: none;
+    float: left;
+    height: 100%;
+    left: 1px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 41px;
+}
+
+.panel .panel-heading .icon i {
+    color: #777777;
+    margin-top: 7px;
+}
+
+.panel .panel-heading h4 {
+    color: #777777;
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 11px 0 11px 50px;
+}
 
 
+.panel .panel-heading a {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+h4, h5, h6 {
+    line-height: 18px;
+}
 
 
+.table {
+    clear: both;
+    margin: 30px 10px 6px 10px;
 
+    max-width: 98% !important;
+    
+}
+.table .header {
+    background: url("../img/furley_bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
 
-
-
-
+}

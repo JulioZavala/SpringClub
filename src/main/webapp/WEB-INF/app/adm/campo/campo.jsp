@@ -30,8 +30,8 @@
                             <div class="icon">
                                 <i class="icon-2x icon-dribbble"></i>
                             </div>
-                            <h4>Servicios</h4>
-                            <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/servicio/new"> Nuevo </a>
+                            <h4>Locales</h4>
+                            <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/campo/new"> Nuevo </a>
                         </div>
 
 
@@ -40,19 +40,35 @@
 
                             <table class="table table-hover table-bordered">
 
+                                <th class="span3 header">Local</th>
                                 <th class="header">Descripción</th>
                                 <th class="header">Costo Hora</th>
+                                <th class="header">Estado</th>
+                                <th class="span1 header"></th>
                                 <th class="span1 header"></th>
                                 <th class="span1 header"></th>
 
-                                <c:forEach var="camp" items="${servicios}">
+
+
+                                <c:forEach var="camp" items="${campos}">
                                     <tr>
+                                        <td><c:out value="${camp.local.descripcion}"/></td>
                                         <td><c:out value="${camp.descripcion}"/></td>
                                         <td><c:out value="${camp.costoHora}"/></td>
-                                        <td><a href="<%=contextPath%>/adm/servicio/update/${adm.id}"><i class="icon-edit"></i></a>
+                                        <td>
+                                            <c:if test="${camp.estado == 1}">
+                                                <label class="label label-success">Activo</label>
+                                            </c:if>
+                                            <c:if test="${camp.estado != 1}">
+                                                <label class="label label-warning">Inactivo</label>
+                                            </c:if>
+                                        </td>
+                                        <td><a href="<%=contextPath%>/adm/campo/listReservas/${adm.id}"><i class="icon-list"></i></a>
+                                        </td>
+                                        <td><a href="<%=contextPath%>/adm/campo/update/${adm.id}"><i class="icon-edit"></i></a>
                                         </td>
 
-                                        <td><a href="<%=contextPath%>/adm/servicio/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/campo/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
                                         </td>
 
                                     </tr>
@@ -81,11 +97,3 @@
 
     </body>
 </html>
-
-
-
-
-
-
-
-

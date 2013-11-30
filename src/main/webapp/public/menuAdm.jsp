@@ -9,35 +9,37 @@
 
         <ul class="nav nav-list">
             <li>
-                <a href="<%=contextPath%>/public/test_1.jsp">
-                    <span class="icon"><i class="icon-large icon-desktop"></i></span>
+                <a href="<%=contextPath%>/adm/admin">
+                    <span class="icon"><i class="icon-large icon-group"></i></span>
+                    <span class="txt">Usuarios</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<%=contextPath%>/adm/local">
+                    <span class="icon"><i class="icon-large icon-home"></i></span>
                     <span class="txt">Registrar Locales</span>
                 </a>
             </li>
             <li>
-                <a href="<%=contextPath%>/public/test_2.jsp">
-                    <span class="icon"><i class="icon-large icon-desktop"></i></span>
+                <a href="<%=contextPath%>/adm/campo">
+                    <span class="icon"><i class="icon-large icon-dribbble"></i></span>
                     <span class="txt">Registrar Campos</span>
                 </a>
             </li>
             <li>
-                <a href="<%=contextPath%>/public/test_8.jsp">
-                    <span class="icon"><i class="icon-large icon-table"></i></span>
+                <a href="<%=contextPath%>/adm/servicio">
+                    <span class="icon"><i class="icon-2x icon-cogs"></i></span>
                     <span class="txt">Registrar Servicios</span>
                 </a>
             </li>
             <li>
-                <a href="<%=contextPath%>/public/test_9.jsp">
-                    <span class="icon"><i class="icon-large icon-table"></i></span>
+                <a href="<%=contextPath%>/adm/reserva">
+                    <span class="icon"><i class="icon-large icon-list"></i></span>
                     <span class="txt">Reservas</span>
                 </a>
             </li>                    
-            <li>
-                <a href="<%=contextPath%>/public/test_10.jsp">
-                    <span class="icon"><i class="icon-large icon-table"></i></span>
-                    <span class="txt">Usuarios</span>
-                </a>
-            </li>
+
 
             <li class="hasSub">
                 <a>
@@ -49,18 +51,18 @@
                 </a>
                 <ul class="sub">
                     <li>
-                        <a href="<%=contextPath%>/adm/admin/newSocio">
+                        <a href="<%=contextPath%>/adm/socio/new">
                             <span class="icon"><i class="icon-large icon-user" style="color: blue"></i></span>
                             <span class="txt">Nuevo Socio</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=contextPath%>/adm/admin/newAdmin">
+                        <a href="<%=contextPath%>/adm/admin/new">
                             <span class="icon"><i class="icon-large icon-user" style="color: red"></i></span>
                             <span class="txt">Nuevo Administrador</span>
                         </a>
                     </li>
-                 </ul>
+                </ul>
             </li>
         </ul>
 
