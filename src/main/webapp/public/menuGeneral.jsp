@@ -1,16 +1,20 @@
+<c:set var="usuario" value="${persona}">
+
+</c:set>
 
 <header id="header">
     <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
             <div class="container">
 
-                <a class="brand">Club App</a>
+                <i></i>
+                <a class="brand">Club Admin</a>
 
 
                 <ul class="nav pull-right">
 
                     <li class="rol">
-                        <p>Administrador : </p>
+                        <p><c:out value="${usuario.nombres}"/></p>
                     </li>
                     
                     <li>
@@ -18,7 +22,7 @@
                             <span>
                                 <img class="menu-avatar" src="<%=request.getContextPath()%>/public/app/img/02.jpg">
                                 <span>
-                                    John Smith
+                                    <c:out value="${usuario.nombres}"/> <c:out value="${usuario.paterno}"/>
                                     <i class="icon-caret-down"></i>
                                 </span>
 
@@ -29,19 +33,20 @@
                                 <div class="avatar">
                                     <img class="img-rounded" src="<%=request.getContextPath()%>/public/app/img/02.jpg">
                                 </div>
-                                <span>John Smith</span>
+                                <span><c:out value="${usuario.nombres}"/> <c:out value="${usuario.paterno}"/></span>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#">
+                                <a href="<%=contextPath%>/adm/admin/update/${usuario.id}">
                                     <i class="icon-user"></i>
-                                    <span>Profile</span>
+                                    <span>Perfil</span>
                                 </a>
                             </li>
+                            <c:url var="logoutUrl" value="/logout"/>
                             <li>
-                                <a href="#">
+                                <a href="${logoutUrl}">
                                     <i class="icon-off"></i>
-                                    <span>Logout</span>
+                                    <span>Salir</span>
                                 </a>
                             </li>
                         </ul>

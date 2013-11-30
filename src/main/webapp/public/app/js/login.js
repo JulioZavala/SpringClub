@@ -11,21 +11,21 @@ $(document).ready(function() {
 	//------------- Validation -------------//
 	$("#login-form").validate({ 
 		rules: {
-			user: {
+			j_username: {
 				required: true,
-				minlength: 5
+				email: true
 			}, 
-			password: {
+			j_password: {
 				required: true,
 				minlength: 6
 			}
 		}, 
 		messages: {
-			user: {
-				required: "Por favor ingrese un Usuario",
+			j_username: {
+				required: "Por favor ingrese un Email",
 				minlength: "El Usuario debe tener mínimo 5 caracteres de longitud"
 			},
-			password: {
+			j_password: {
 				required: "Por favor ingrese una Contraseña",
 				minlength: "La Contraseña debe tener mínimo 6 caracteres de longitud"
 			}

@@ -42,12 +42,12 @@ $(document).ready(function() {
 
 
 
-    $('#mainnav  ul li').click(function() {
+    $('#mainnav  ul  li').click(function() {
 
 
 
         if ($(this).hasClass("hasSub")) {
-            iconElem = $(this).find('i');
+            iconElem = $(this).find('span.more i');
             ulElem = $(this).children('ul');
             if (ulElem.hasClass("expand")) {
                 ulElem.removeClass('expand');

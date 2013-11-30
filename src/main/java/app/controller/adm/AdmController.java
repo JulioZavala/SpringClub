@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/adm")
 public class AdmController {
     
-    @ResponseBody
+    //@ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpSession session){
     
         Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
-        
-        return "ADMINISTRADOR: " + persona.getFullName();
+        String mensaje = "Bienvenido";
+        //return "ADMINISTRADOR: " + persona.getFullName();
+        return "adm/admin";
     }
     
     

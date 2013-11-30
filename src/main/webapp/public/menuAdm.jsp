@@ -11,91 +11,56 @@
             <li>
                 <a href="<%=contextPath%>/public/test_1.jsp">
                     <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                    <span class="txt">Dashboard</span>
+                    <span class="txt">Registrar Locales</span>
                 </a>
             </li>
             <li>
                 <a href="<%=contextPath%>/public/test_2.jsp">
                     <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                    <span class="txt">Charts</span>
+                    <span class="txt">Registrar Campos</span>
                 </a>
-            </li>
-            <li class="hasSub">
-                <a href="#tables">
-                    <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                    <span class="txt">Tables</span>
-                    <span class="more">
-                        <i class="icon-caret-down"></i>
-                    </span>
-                </a>
-                <ul class="sub">
-                    <li>
-                        <a href="<%=contextPath%>/public/test_6.jsp">
-                            <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                            <span class="txt">Static tables</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<%=contextPath%>/public/test_7.jsp">
-                            <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                            <span class="txt">Data tables</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li>
                 <a href="<%=contextPath%>/public/test_8.jsp">
                     <span class="icon"><i class="icon-large icon-table"></i></span>
-                    <span class="txt">Grid</span>
+                    <span class="txt">Registrar Servicios</span>
                 </a>
             </li>
             <li>
                 <a href="<%=contextPath%>/public/test_9.jsp">
                     <span class="icon"><i class="icon-large icon-table"></i></span>
-                    <span class="txt">Typography</span>
+                    <span class="txt">Reservas</span>
                 </a>
-            </li>
+            </li>                    
             <li>
                 <a href="<%=contextPath%>/public/test_10.jsp">
                     <span class="icon"><i class="icon-large icon-table"></i></span>
-                    <span class="txt">Calendar</span>
+                    <span class="txt">Usuarios</span>
                 </a>
             </li>
-            <li>
-                <a href="<%=contextPath%>/public/test_11.jsp">
-                    <span class="icon"><i class="icon-large icon-table"></i></span>
-                    <span class="txt">Ui Elements</span>
-                </a>
 
-            </li>
             <li class="hasSub">
                 <a>
-                    <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                    <span class="txt">Forms</span>
+                    <span class="icon"><i class="icon-large icon-user"></i></span>
+                    <span class="txt">Nuevo Usuario</span>
                     <span class="more">
                         <i class="icon-caret-down"></i>
                     </span>
                 </a>
                 <ul class="sub">
                     <li>
-                        <a href="<%=contextPath%>/public/test_3.jsp">
-                            <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                            <span class="txt">Form elements</span>
+                        <a href="<%=contextPath%>/adm/admin/newSocio">
+                            <span class="icon"><i class="icon-large icon-user" style="color: blue"></i></span>
+                            <span class="txt">Nuevo Socio</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=contextPath%>/public/test_4.jsp">
-                            <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                            <span class="txt">Form validation</span>
+                        <a href="<%=contextPath%>/adm/admin/newAdmin">
+                            <span class="icon"><i class="icon-large icon-user" style="color: red"></i></span>
+                            <span class="txt">Nuevo Administrador</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="<%=contextPath%>/public/test_5.jsp">
-                            <span class="icon"><i class="icon-large icon-desktop"></i></span>
-                            <span class="txt">Form wizard</span>
-                        </a>
-                    </li>
-                </ul>
+                 </ul>
             </li>
         </ul>
 
