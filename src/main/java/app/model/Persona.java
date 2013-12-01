@@ -41,6 +41,9 @@ public class Persona implements Serializable {
     @Column(name = "direccion")
     private String direccion;
     
+    @Column(name= "avatar")
+    private byte avatar;
+    
     @OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
     private Usuario usuario;
     
@@ -120,6 +123,15 @@ public class Persona implements Serializable {
         this.direccion = direccion;
     }
 
+    public byte getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte avatar) {
+        this.avatar = avatar;
+    }
+
+      
     public Usuario getUsuario() {
         return usuario;
     }

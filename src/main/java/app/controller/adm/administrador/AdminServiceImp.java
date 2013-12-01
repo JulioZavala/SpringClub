@@ -31,7 +31,6 @@ public class AdminServiceImp implements AdminService{
     public List<Persona> list() {
          //List<Persona> list=personaDAO.listAdministrador();
          List<Persona> list=personaDAO.list();
-         System.out.println(list.size());
          return list;
     }
 

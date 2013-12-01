@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Panel Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <%@include file="/public/header.jsp" %>
     </head>
     <body>
@@ -56,12 +56,17 @@
                                         <td><c:out value="${camp.direccion}"/></td>
                                         <td><c:out value="${camp.telefono}"/></td>
                                         <td>
-                                            <c:if test="${camp.estado == 1}">
-                                                <label class="label label-success">Activo</label>
-                                            </c:if>
-                                            <c:if test="${camp.estado != 1}">
-                                                <label class="label label-warning">Inactivo</label>
-                                            </c:if>
+
+                                            <a href="#" class="activar" ref="${camp.id}">
+
+                                                <c:if test="${camp.estado == 1}">
+                                                    <label class="label label-success">Desactivar</label>
+                                                </c:if>
+                                                <c:if test="${camp.estado != 1}">
+                                                    <label class="label label-warning">Activar</label>
+                                                </c:if>
+
+                                            </a>
                                         </td>
                                         <td><a href="<%=contextPath%>/adm/local/listCampos/${camp.id}"><i class="icon-dribbble"></i></a>
                                         </td>
@@ -94,6 +99,41 @@
         </div>
 
         <%@include file="/public/footer.jsp" %>
+
+        <script>
+            $(function() {
+
+                $('.activar').each(function(index, elem) {
+                    $(elem).click(function() {
+                        var idLocal = $(elem).attr('ref');
+                        console.log(idLocal);
+
+
+                        $.ajax({
+                            url: '/SpringClub/adm/local/activar',
+                            method: 'post',
+                            data: {id: idLocal},
+                            success: function(response){
+                                if(response.success){
+                                    location.reload();
+                                }
+                                
+                            }
+
+                        });
+
+
+                    });
+
+
+
+
+                });
+
+            });
+
+        </script>
+
 
     </body>
 </html>
