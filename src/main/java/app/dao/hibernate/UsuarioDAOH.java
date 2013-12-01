@@ -32,7 +32,7 @@ public class UsuarioDAOH extends BaseHibernateDAO implements UsuarioDAO{
 
     @Transactional
     public void update(Usuario t) {
-        this.getSession().update(t);
+        this.getSession().merge(t);
     }
 
     @Transactional

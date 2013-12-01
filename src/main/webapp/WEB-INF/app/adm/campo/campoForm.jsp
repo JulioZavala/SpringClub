@@ -155,7 +155,7 @@
 
         <script>
 
-            $("#localForm").validate({
+            $("#campoForm").validate({
                 rules: {
                     descripcion: {
                         required: true,
