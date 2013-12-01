@@ -1,6 +1,7 @@
 package app.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -44,7 +45,7 @@ public class Persona implements Serializable {
     private Usuario usuario;
     
     @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
-    private SolicitudAlquiler solicitudAlquiler;
+    private List<SolicitudAlquiler> solicitudAlquiler;
     
 
 
@@ -127,13 +128,15 @@ public class Persona implements Serializable {
         this.usuario = usuario;
     }
 
-    public SolicitudAlquiler getSolitudAlquiler() {
+    public List<SolicitudAlquiler> getSolicitudAlquiler() {
         return solicitudAlquiler;
     }
 
-    public void setSolicitudAlquiler(SolicitudAlquiler solicitudAlquiler) {
+    public void setSolicitudAlquiler(List<SolicitudAlquiler> solicitudAlquiler) {
         this.solicitudAlquiler = solicitudAlquiler;
     }
+
+
 
     public String getFullName(){
         return this.nombres + " "+ this.paterno +" "+this.materno;

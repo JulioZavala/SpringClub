@@ -547,3 +547,11 @@ h4, h5, h6 {
     background: url("../img/furley_bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
 
 }
+
+.panel-body form {
+
+    margin: 30px 10px 6px 10px;
+
+    max-width: 98% !important;
+    
+}

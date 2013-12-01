@@ -30,8 +30,7 @@
                             <div class="icon">
                                 <i class="icon-2x icon-list"></i>
                             </div>
-                            <h4>Reservas</h4>
-                            <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/solicitud/new"> Nuevo </a>
+                            <h4>Solicitudes</h4>
                         </div>
 
 
@@ -61,8 +60,8 @@
                                         <td><c:out value="${camp.campo.local.descripcion}"/></td>
                                         <td><c:out value="${camp.campo.descripcion}"/></td>
                                         <td><c:out value="${camp.dia}"/></td>
-                                        <td><c:out value="${camp.hora_inicio}"/></td>
-                                        <td><c:out value="${camp.hora_fin}"/></td>
+                                        <td><c:out value="${camp.horaInicio}"/></td>
+                                        <td><c:out value="${camp.horaFin}"/></td>
                                         
                                         
                                         <td>
@@ -73,7 +72,7 @@
                                                 <label class="label label-warning">No Aprobado</label>
                                             </c:if>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/solicitud/listServicios/${adm.id}"><i class="icon-list"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/solicitud/listServicios/${adm.id}"><i class="icon-cogs"></i></a>
                                         </td>
                                         <td><a href="<%=contextPath%>/adm/solicitud/update/${adm.id}"><i class="icon-edit"></i></a>
                                         </td>

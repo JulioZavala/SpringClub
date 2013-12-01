@@ -2,6 +2,8 @@
 package app.controller.adm.socio;
 
 import app.model.Persona;
+import app.zelper.Constantes;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +21,18 @@ public class SocioController {
     SocioService service;
     
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model model) {
+    public String index(Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         model.addAttribute("socios",service.list());
+        model.addAttribute("persona", persona);
         return "adm/socio/socio";
     }
     
     @RequestMapping("new")
-    public String nuevo(Model model) {
-        
+    public String nuevo(Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         model.addAttribute("socio", new Persona());
-        
+        model.addAttribute("persona", persona);
         return "adm/socio/socioForm";
     }
     

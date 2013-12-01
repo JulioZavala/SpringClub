@@ -63,12 +63,12 @@
                                                 <label class="label label-warning">Inactivo</label>
                                             </c:if>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/local/listCampos/${adm.id}"><i class="icon-dribbble"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/local/listCampos/${camp.id}"><i class="icon-dribbble"></i></a>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/local/update/${adm.id}"><i class="icon-edit"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/local/update/${camp.id}"><i class="icon-edit"></i></a>
                                         </td>
 
-                                        <td><a href="<%=contextPath%>/adm/local/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/local/delete/${camp.id}"><i class="icon-trash" style="color: red"></i></a>
                                         </td>
 
                                     </tr>

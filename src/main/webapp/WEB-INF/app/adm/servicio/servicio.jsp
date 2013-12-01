@@ -28,7 +28,7 @@
 
                         <div class="panel-heading">
                             <div class="icon">
-                                <i class="icon-2x icon-dribbble"></i>
+                                <i class="icon-2x icon-cogs"></i>
                             </div>
                             <h4>Servicios</h4>
                             <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/servicio/new"> Nuevo </a>

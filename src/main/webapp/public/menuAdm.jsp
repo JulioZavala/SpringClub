@@ -34,9 +34,9 @@
                 </a>
             </li>
             <li>
-                <a href="<%=contextPath%>/adm/reserva">
+                <a href="<%=contextPath%>/adm/solicitud">
                     <span class="icon"><i class="icon-large icon-list"></i></span>
-                    <span class="txt">Reservas</span>
+                    <span class="txt">Solicitudes</span>
                 </a>
             </li>                    
 

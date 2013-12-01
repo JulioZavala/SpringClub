@@ -29,10 +29,10 @@ public class AdminController {
     }
 
     @RequestMapping("new")
-    public String nuevoAdmin(Model model) {
-
+    public String nuevoAdmin(Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         model.addAttribute("admin", new Persona());
-
+        model.addAttribute("persona", persona);
         return "adm/admin/adminForm";
     }
 
