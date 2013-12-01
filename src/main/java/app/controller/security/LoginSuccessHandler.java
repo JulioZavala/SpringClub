@@ -41,7 +41,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
                 this.setDefaultTargetUrl("/adm/admin");
                 break;
             }else if(rol.getAuthority().equals(RolesEnum.SOCIO.getValue())){
-                this.setDefaultTargetUrl("/socio");
+                this.setDefaultTargetUrl("/socio/solicitud");
                 break;
             }
         }

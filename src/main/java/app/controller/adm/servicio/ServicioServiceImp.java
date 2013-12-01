@@ -3,6 +3,7 @@ package app.controller.adm.servicio;
 
 import app.dao.ServicioDAO;
 import app.model.Servicio;
+import app.zelper.TareasAutomaticas;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class ServicioServiceImp implements ServicioService{
     
     @Override
     public List<Servicio> list() {
-        return servicioDAO.list();
+           return servicioDAO.list();
+        
     }
 
     @Override

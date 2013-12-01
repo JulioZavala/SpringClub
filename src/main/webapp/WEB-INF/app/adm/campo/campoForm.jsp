@@ -51,9 +51,12 @@
 
                                             <c:forEach var="locales" items="${locales}">
 
-                                                
-                                                    <option value="${locales.id}"><c:out value="${locales.descripcion}"/></option>
-                   
+                                                <c:if test="${campo.local.id == locales.id or campo.local.id == null}">
+                                                    <option value="${locales.id}" selected>${locales.descripcion}</option>
+                                                </c:if>
+                                                <c:if test="${campo.local.id != locales.id and campo.local.id != null}">
+                                                    <option value="${locales.id}">${locales.descripcion}</option>
+                                                </c:if>  
 
                                             </c:forEach>
 

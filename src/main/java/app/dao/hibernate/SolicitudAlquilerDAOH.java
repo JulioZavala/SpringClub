@@ -1,8 +1,8 @@
-
 package app.dao.hibernate;
 
 import app.dao.BaseHibernateDAO;
 import app.dao.SolicitudAlquilerDAO;
+import app.model.Persona;
 import app.model.SolicitudAlquiler;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -11,11 +11,16 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository("solicitudAlquilerDAO")
-public class SolicitudAlquilerDAOH extends BaseHibernateDAO implements SolicitudAlquilerDAO{
-    
-    
+public class SolicitudAlquilerDAOH extends BaseHibernateDAO implements SolicitudAlquilerDAO {
+
     public List<SolicitudAlquiler> list() {
         Criteria criteria = this.getSession().createCriteria(SolicitudAlquiler.class);
+        return criteria.list();
+    }
+
+    public List<SolicitudAlquiler> listByPersona(Persona persona) {
+        Criteria criteria = this.getSession().createCriteria(SolicitudAlquiler.class);
+        criteria.add(Restrictions.eq("persona", persona));
         return criteria.list();
     }
 
@@ -39,7 +44,4 @@ public class SolicitudAlquilerDAOH extends BaseHibernateDAO implements Solicitud
     public void delete(SolicitudAlquiler t) {
         this.getSession().delete(t);
     }
-    
-    
-    
 }

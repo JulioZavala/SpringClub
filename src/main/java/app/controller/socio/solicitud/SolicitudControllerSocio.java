@@ -1,7 +1,9 @@
 
-package app.controller.adm.socio;
+package app.controller.socio.solicitud;
+
 
 import app.model.Persona;
+import app.model.SolicitudAlquiler;
 import app.zelper.Constantes;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,62 +15,58 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("adm/socio")
-public class SocioController {
+@RequestMapping("socio/solicitud")
+public class SolicitudControllerSocio {
     
     
     @Autowired
-    SocioService service;
-    
+    SolicitudServiceSocio service;
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model, HttpSession session) {
         Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
-        model.addAttribute("socios",service.list());
+        model.addAttribute("solicitudes",service.listByPersona(persona));
         model.addAttribute("persona", persona);
-        return "adm/socio/socio";
+        return "socio/solicitud/solicitud";
     }
     
     @RequestMapping("new")
-    public String nuevo(Model model, HttpSession session) {
-        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
-        model.addAttribute("socio", new Persona());
-        model.addAttribute("persona", persona);
-        return "adm/socio/socioForm";
+    public String nuevo(Model model) {
+        
+        model.addAttribute("solicitud", new SolicitudAlquiler());
+        
+        return "socio/solicitud/solicitudForm";
     }
     
     @RequestMapping("update/{id}")
     public String update(@PathVariable long id, Model model) {
-        Persona persona = service.get(new Persona(id));
+        SolicitudAlquiler solicitud = service.get(new SolicitudAlquiler(id));
         
-        if(persona==null){
-            return "redirect:/adm/socio";
+        if(solicitud==null){
+            return "redirect:/socio/solicitud";
         }
         
-        model.addAttribute("socio",persona);
+        model.addAttribute("solicitud",solicitud);
         
-        return "adm/socio/socioForm";
+        return "socio/solicitud/solicitudForm";
     }
     
     @RequestMapping(value="save", method= RequestMethod.POST)
-    public String save(@ModelAttribute Persona persona) {
-         if (persona.getId()== null){
-             service.save(persona);
+    public String save(@ModelAttribute SolicitudAlquiler solicitud) {
+         if (solicitud.getId()== null){
+             service.save(solicitud);
          }else {
-             service.update(persona);
+             service.update(solicitud);
          }
         
-        return "redirect:/adm/admin";
+        return "redirect:/socio/solicitud";
     }
     
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable long id) {
                 
-       service.delete(new Persona(id));
+       service.delete(new SolicitudAlquiler(id));
            
-       return "redirect:/adm/admin";
+       return "redirect:/socio/solicitud";
     }
-    
-    
-    
     
 }

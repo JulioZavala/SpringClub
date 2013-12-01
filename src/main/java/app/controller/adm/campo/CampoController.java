@@ -21,6 +21,7 @@ public class CampoController {
     
     @Autowired
     CampoService service;
+    @Autowired
     LocalService serviceLocal;
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model, HttpSession session) {

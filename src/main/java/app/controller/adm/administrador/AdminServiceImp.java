@@ -8,6 +8,7 @@ import app.model.Usuario;
 import app.model.UsuarioRol;
 import app.zelper.EstadoEnum;
 import app.zelper.RolesEnum;
+import app.zelper.TareasAutomaticas;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
