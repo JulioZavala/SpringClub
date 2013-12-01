@@ -1,6 +1,7 @@
 
 package app.controller.adm.campo;
 
+import app.controller.adm.local.LocalService;
 import app.model.Campo;
 import app.model.Persona;
 import app.zelper.Constantes;
@@ -20,6 +21,7 @@ public class CampoController {
     
     @Autowired
     CampoService service;
+    LocalService serviceLocal;
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model, HttpSession session) {
         Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
@@ -29,23 +31,25 @@ public class CampoController {
     }
     
     @RequestMapping("new")
-    public String nuevo(Model model) {
-        
+    public String nuevo(Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         model.addAttribute("campo", new Campo());
-        
+        model.addAttribute("locales",serviceLocal.list());
+        model.addAttribute("persona", persona);
         return "adm/campo/campoForm";
     }
     
     @RequestMapping("update/{id}")
-    public String update(@PathVariable long id, Model model) {
+    public String update(@PathVariable long id, Model model, HttpSession session) {
+        Persona persona = (Persona) session.getAttribute(Constantes.SESSION_USUARIO);
         Campo campo = service.get(new Campo(id));
         
         if(campo==null){
             return "redirect:/adm/campo";
         }
-        
+        model.addAttribute("locales",serviceLocal.list());
         model.addAttribute("campo",campo);
-        
+        model.addAttribute("persona", persona);
         return "adm/campo/campoForm";
     }
     

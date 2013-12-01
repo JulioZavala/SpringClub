@@ -29,41 +29,63 @@
                             <div class="icon">
                                 <i class="icon-2x icon-home"></i>
                             </div>
-                            <h4>Local</h4>
+                            <h4>Campo</h4>
                             <a class="minimize" href="#"></a>
                         </div>
 
                         <div class="panel-body">
 
 
-                            <form id="localForm" action="<%=contextPath%>/adm/local/save" method="post" class="form-horizontal">
+                            <form id="campoForm" action="<%=contextPath%>/adm/campo/save" method="post" class="form-horizontal">
 
 
-                                <input type="hidden" value="${local.id}" name="id">
+                                <input type="hidden" value="${campo.id}" name="id">
+
+
+                                <div class="control-group">
+                                    <label class="control-label">Local</label>
+
+                                    <div class="controls" >
+
+                                        <select name="local" value="${campo.local.id}">
+
+                                            <c:forEach var="locales" items="${locales}">
+
+                                                
+                                                    <option value="${locales.id}"><c:out value="${locales.descripcion}"/></option>
+                   
+
+                                            </c:forEach>
+
+
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
 
                                 <div class="control-group">
                                     <label class="control-label">Descripción</label>
                                     <div class="controls">
-                                        <input type="text" name="descripcion" value="${local.descripcion}">
+                                        <input type="text" name="descripcion" value="${campo.descripcion}">
                                     </div>
                                 </div>
 
 
                                 <div class="control-group">
-                                    <label class="control-label">Dirección</label>
+                                    <label class="control-label">Costo Hora</label>
                                     <div class="controls">
-                                        <input type="text" name="direccion" value="${local.direccion}">
+                                        <input type="text" name="costoHora" value="${campo.costoHora}">
                                     </div>
                                 </div>
 
-
-
-                                <div class="control-group">
-                                    <label class="control-label">Teléfono</label>
-                                    <div class="controls">
-                                        <input type="text" name="telefono" value="${local.telefono}">
-                                    </div>
-                                </div>
 
 
                                 <div class="control-group">
@@ -71,13 +93,13 @@
 
                                     <div class="controls" >
 
-                                        <select name="estado" value="${local.estado}">
+                                        <select name="estado" value="${campo.estado}">
 
-                                            <c:if test="${local.estado == 1 or local.estado == null}">
+                                            <c:if test="${campo.estado == 1 or campo.estado == null}">
                                                 <option value="1" selected>Activo</option>
                                                 <option value="0">Inactivo</option>
                                             </c:if>
-                                            <c:if test="${local.estado == 0}">
+                                            <c:if test="${campo.estado == 0}">
                                                 <option value="1">Activo</option>
                                                 <option value="0"selected>Inactivo</option>
                                             </c:if>                                        
@@ -92,7 +114,7 @@
 
                                 <div class="control-group">
                                     <div class="controls">
-                                        <a class="btn" href="<%=contextPath%>/adm/local">Cancelar</a>
+                                        <a class="btn" href="<%=contextPath%>/adm/campo">Cancelar</a>
                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>
                                 </div> 
@@ -144,7 +166,6 @@
                         required: true,
                         digits: 2
                     },
-
                 },
                 messages: {
                     descripcion: {

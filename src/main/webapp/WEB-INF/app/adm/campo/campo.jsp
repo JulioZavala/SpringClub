@@ -30,7 +30,7 @@
                             <div class="icon">
                                 <i class="icon-2x icon-dribbble"></i>
                             </div>
-                            <h4>Locales</h4>
+                            <h4>Campos</h4>
                             <a class=" btn btn-primary pull-right" href="<%=contextPath%>/adm/campo/new"> Nuevo </a>
                         </div>
 
@@ -63,12 +63,12 @@
                                                 <label class="label label-warning">Inactivo</label>
                                             </c:if>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/campo/listReservas/${adm.id}"><i class="icon-list"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/campo/listReservas/${camp.id}"><i class="icon-list"></i></a>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/campo/update/${adm.id}"><i class="icon-edit"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/campo/update/${camp.id}"><i class="icon-edit"></i></a>
                                         </td>
 
-                                        <td><a href="<%=contextPath%>/adm/campo/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
+                                        <td><a href="<%=contextPath%>/adm/campo/delete/${camp.id}"><i class="icon-trash" style="color: red"></i></a>
                                         </td>
 
                                     </tr>
