@@ -6,19 +6,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Panel Administrador</title>
+        <title>Panel Socio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        
         <%@include file="/public/header.jsp" %>
     </head>
     <body>
 
-        <%@include file="/public/menuGeneral.jsp" %>
+        <%@include file="/public/menuGeneral_1.jsp" %>
 
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <%@include file="/public/menuAdm.jsp" %>
+                <%@include file="/public/menuSocio.jsp" %>
                 <div class="span9">
 
 
@@ -37,6 +37,8 @@
 
                         <div class="panel-body">
 
+
+                            
                             <table class="table table-hover table-bordered">
 
                                 <th class="header">Id Socio</th>
@@ -50,7 +52,7 @@
                                 <th class="span1 header"></th>
                                 <th class="span1 header"></th>
                                 <th class="span1 header"></th>
-                                <th class="span1 header"></th>
+
 
 
                                 <c:forEach var="camp" items="${solicitudes}">
@@ -62,8 +64,8 @@
                                         <td><c:out value="${camp.dia}"/></td>
                                         <td><c:out value="${camp.horaInicio}"/></td>
                                         <td><c:out value="${camp.horaFin}"/></td>
-
-
+                                        
+                                        
                                         <td>
                                             <c:if test="${camp.estado == 1}">
                                                 <label class="label label-success">Aprobado</label>
@@ -72,17 +74,20 @@
                                                 <label class="label label-warning">No Aprobado</label>
                                             </c:if>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/solicitud/listServicios/${adm.id}"><i class="icon-cogs"></i></a>
+                                        <td><a href="<%=contextPath%>/socio/solicitud/listServicios/${camp.id}"><i class="icon-cogs"></i></a>
                                         </td>
-                                        <td><a href="<%=contextPath%>/adm/solicitud/update/${adm.id}"><i class="icon-edit"></i></a>
+                                        <td><a href="<%=contextPath%>/socio/solicitud/update/${camp.id}"><i class="icon-edit"></i></a>
                                         </td>
 
-                                        <td><a href="<%=contextPath%>/adm/solicitud/delete/${adm.id}"><i class="icon-trash" style="color: red"></i></a>
+                                        <td><a href="<%=contextPath%>/socio/solicitud/delete/${camp.id}"><i class="icon-trash" style="color: red"></i></a>
                                         </td>
 
                                     </tr>
                                 </c:forEach>
                             </table>
+
+                            
+                            
 
                         </div>
 

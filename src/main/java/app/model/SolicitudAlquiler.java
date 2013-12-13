@@ -1,5 +1,12 @@
 package app.model;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -109,5 +116,35 @@ public class SolicitudAlquiler implements Serializable {
 
     public void setCampo(Campo campo) {
         this.campo = campo;
+    }
+    
+    
+    public Evento getEvento (){
+        String aprobado = (estado==1)?"aprobado":"no aprobado";
+        
+        
+        
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date horaI = null;
+        Date horaF = null;
+        
+        try {
+            horaI = formato.parse(dia+" "+horaInicio);
+            horaF = formato.parse(dia+" "+horaFin);
+        } catch (ParseException ex) {
+            Logger.getLogger(SolicitudAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Calendar calendarInicio = Calendar.getInstance();
+        Calendar calendarFin = Calendar.getInstance();
+        
+        calendarInicio.setTime(horaI);
+        calendarFin.setTime(horaF);
+        
+        long inicio = calendarInicio.getTimeInMillis()/1000;
+        long fin = calendarFin.getTimeInMillis()/1000;
+        
+        Evento evento = new Evento(inicio,fin,aprobado,false);
+        return evento;
     }
 }
